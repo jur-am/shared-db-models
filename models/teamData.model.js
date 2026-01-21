@@ -16,22 +16,6 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.STRING(255),
         field: "phone_number",
       },
-      firstHalf: {
-        type: Sequelize.ENUM("0", "1"),
-        field: "first_half",
-      },
-      secondHalf: {
-        type: Sequelize.ENUM("0", "1"),
-        field: "second_half",
-      },
-      thirdHalf: {
-        type: Sequelize.ENUM("0", "1"),
-        field: "third_half",
-      },
-      fourthHalf: {
-        type: Sequelize.ENUM("0", "1"),
-        field: "fourth_half",
-      },
     },
     {
       timestamps: false,

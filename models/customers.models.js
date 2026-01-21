@@ -51,6 +51,22 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.INTEGER.UNSIGNED,
         field: "Region_IF",
       },
+      permanentNote: {
+        type: Sequelize.STRING(250),
+        field: "Permanentnote",
+      },
+      addressDescription: {
+        type: Sequelize.STRING(400),
+        field: "AddressDescripIF",
+      },
+      addressDescriptionDraft: {
+        type: Sequelize.STRING(400),
+        field: "AddressDescriptionDraft",
+      },
+      lastActivity: {
+        type: Sequelize.DATE,
+        field: "last_activity",
+      },
       user: {
         type: Sequelize.STRING(50),
       },
@@ -90,6 +106,20 @@ export default (sequelize, Sequelize) => {
       },
       points: {
         type: Sequelize.DOUBLE,
+      },
+      lat: {
+        type: Sequelize.STRING(10),
+      },
+      lng: {
+        type: Sequelize.STRING(10),
+      },
+      imagePath: {
+        type: Sequelize.STRING(250),
+        field: "image_path",
+      },
+      phoneNumber: {
+        type: Sequelize.STRING(112),
+        field: "Phone_IF",
       },
     },
     {

@@ -7,6 +7,7 @@ export default (sequelize, Sequelize) => {
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
+        unique: true,
       },
       customerId: {
         type: Sequelize.INTEGER,

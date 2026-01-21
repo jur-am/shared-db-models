@@ -48,6 +48,9 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.STRING(2000),
         field: "Notes_etc",
       },
+      creator: {
+        type: Sequelize.STRING(50),
+      },
       state: {
         type: Sequelize.INTEGER,
       },
@@ -156,11 +159,7 @@ export default (sequelize, Sequelize) => {
         defaultValue: null,
         get: function () {
           if (this.getDataValue("collectionDate")) {
-            return (
-              this.getDataValue("collectionDate").toISOString().split("T")[0] +
-              " " +
-              this.getDataValue("collectionDate").toTimeString().split(" ")[0]
-            );
+            return this.getDataValue("collectionDate").toISOString().split("T")[0] + " " + this.getDataValue("collectionDate").toTimeString().split(" ")[0];
           }
         },
       },
