@@ -17,7 +17,7 @@ export default (sequelize, Sequelize) => {
         field: "IdProduct",
       },
       count: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.DECIMAL(8, 2),
         field: "Quantiti",
       },
       price: {
@@ -25,7 +25,7 @@ export default (sequelize, Sequelize) => {
         field: "Cost",
       },
       points: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.DECIMAL(8, 2),
       },
       promoId: {
         type: Sequelize.INTEGER,
