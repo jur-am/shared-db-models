@@ -237,25 +237,6 @@ export default (sequelize, Sequelize) => {
     foreignKey: "orderId",
   });
 
-  db.postponedOrders.belongsTo(db.postponeReasones, {
-    foreignKey: "reasonId",
-  });
-
-  db.postponedOrders.belongsTo(db.orders, { foreignKey: "orderId" });
-
-  db.orders.hasMany(db.postponedOrders, {
-    foreignKey: "orderId",
-  });
-
-  db.teamDevices.belongsTo(db.assignees, {
-    foreignKey: "courierId",
-    as: "courier",
-  });
-
-  db.teamDevices.belongsTo(db.assignees, {
-    foreignKey: "driverCourierId",
-    as: "driverCourier",
-  });
   db.deliveryScheduleTeams.belongsTo(db.assignees, {
     foreignKey: "courierId",
     as: "courier",
@@ -292,7 +273,7 @@ export default (sequelize, Sequelize) => {
     foreignKey: "carId",
   });
 
-  db.deliveryScheduleTeams.belongsTo(db.deliveryScheduleParts, {
+  db.deliveryScheduleTeams.belongsTo(db.deliveryScheduleDayParts, {
     foreignKey: "dayPartId",
   });
   db.deliveryScheduleTeams.belongsTo(db.deliverySchedule, {
@@ -405,9 +386,6 @@ export default (sequelize, Sequelize) => {
     as: "driverCourier",
   });
 
-  db.orders.hasMany(db.postponeOrders, {
-    foreignKey: "orderId",
-  });
   db.emails.belongsTo(db.customers, {
     foreignKey: "custId",
   });
@@ -448,15 +426,6 @@ export default (sequelize, Sequelize) => {
     foreignKey: "dest_stock",
   });
 
-  // TransactionItems
-  db.transactions.hasMany(db.transactionItems, {
-    as: "items",
-    foreignKey: "transact_id",
-  });
-  db.transactionItems.belongsTo(db.transactions, {
-    foreignKey: "transact_id",
-  });
-
   db.products.hasMany(db.transactionItems, {
     foreignKey: "product_id",
   });
@@ -464,11 +433,6 @@ export default (sequelize, Sequelize) => {
     foreignKey: "product_id",
   });
 
-  // Purchases
-  db.transactionItems.hasOne(db.purchases, {
-    as: "purchases",
-    foreignKey: "transItemId",
-  });
   db.purchases.belongsTo(db.transactionItems, {
     foreignKey: "transItemId",
   });
@@ -497,10 +461,6 @@ export default (sequelize, Sequelize) => {
     foreignKey: "teamId",
     as: "TeamData", // Specify the key name
   });
-
-  // db.orders.hasOne(db.customers, {
-  //   foreignKey: 'id'
-  // });
 
   db.orders.hasOne(db.cars, {
     foreignKey: "carNumber",
