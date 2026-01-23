@@ -15,6 +15,15 @@ export default (sequelize, Sequelize) => {
       email: {
         type: Sequelize.STRING(45),
       },
+      username: {
+        type: Sequelize.STRING(45),
+      },
+      password: {
+        type: Sequelize.STRING(45),
+      },
+      role: {
+        type: Sequelize.INTEGER.UNSIGNED,
+      },
     },
     {
       timestamps: false,
