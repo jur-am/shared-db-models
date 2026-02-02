@@ -47,9 +47,21 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.STRING(5),
         field: "l_agreement",
       },
+      invoiceCode: {
+        type: Sequelize.STRING(8),
+        field: "InvoiceCode",
+      },
+      codNalog: {
+        type: Sequelize.STRING(15),
+        field: "Cod_Nalog_I",
+      },
       region: {
         type: Sequelize.INTEGER.UNSIGNED,
         field: "Region_IF",
+      },
+      region1: {
+        type: Sequelize.INTEGER.UNSIGNED,
+        field: "region_1",
       },
       permanentNote: {
         type: Sequelize.STRING(250),
@@ -86,11 +98,18 @@ export default (sequelize, Sequelize) => {
       main: {
         type: Sequelize.TINYINT,
       },
+      activCustomer: {
+        type: Sequelize.TINYINT,
+        field: 'aktiv_customer'
+      },
       redeemableBonusPoints: {
         type: Sequelize.INTEGER,
       },
       lastUnusedBonusDate: {
         type: Sequelize.DATEONLY,
+      },
+      state: {
+        type: Sequelize.INTEGER,
       },
       cred1: {
         type: Sequelize.INTEGER,
