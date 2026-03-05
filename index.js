@@ -169,10 +169,6 @@ export default (sequelize, Sequelize) => {
   //   foreignKey: 'id'
   // });
 
-  db.orders.hasOne(db.cars, {
-    foreignKey: "carNumber",
-  });
-
   db.customers.hasMany(db.orders, {
     foreignKey: "customerId",
   });
@@ -308,11 +304,6 @@ export default (sequelize, Sequelize) => {
     foreignKey: "orderId",
   });
 
-  db.orders.hasMany(db.cars, {
-    sourceKey: "carId", // <-- torder.IdCar
-    foreignKey: "carNumber",
-  });
-
   db.creditReturn.belongsTo(db.orders, {
     foreignKey: "orderid",
     targetKey: "id",
@@ -379,6 +370,8 @@ export default (sequelize, Sequelize) => {
   });
 
   db.postponeOrders.belongsTo(db.orders, { foreignKey: "orderId" });
+
+  db.orders.hasMany(db.postponeOrders, { foreignKey: "orderId" });
 
   db.postponeOrders.belongsTo(db.assignees, {
     foreignKey: "courierId",
@@ -467,13 +460,13 @@ export default (sequelize, Sequelize) => {
   });
 
   db.orders.hasOne(db.cars, {
-    foreignKey: "carNumber",
+    foreignKey: "id",
     sourceKey: "carId",
   });
 
   db.cars.hasMany(db.orders, {
     foreignKey: "carId",
-    sourceKey: "carNumber",
+    sourceKey: "id",
   });
 
   db.customers.hasMany(db.orders, {
