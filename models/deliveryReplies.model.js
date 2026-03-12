@@ -3,7 +3,7 @@ export default (sequelize, Sequelize) => {
     "DeliveryReplies",
     {
       id: {
-        type: Sequelize.INTEGER.UNSIGNED,
+        type: Sequelize.SMALLINT.UNSIGNED,
         primaryKey: true,
         allowNull: false,
         autoIncrement: true,

@@ -3,26 +3,14 @@ export default (sequelize, Sequelize) => {
     "CourierToThirdPersonReasons",
     {
       id: {
-        type: Sequelize.INTEGER.UNSIGNED,
+        type: Sequelize.SMALLINT.UNSIGNED,
         primaryKey: true,
         allowNull: false,
         autoIncrement: true,
-        un
       },
-      textAM: {
+      text: {
         type: Sequelize.STRING(200),
         allowNull: false,
-        field: "text",
-      },
-      textEN: {
-        type: Sequelize.STRING(200),
-        allowNull: false,
-        field: "text_en",
-      },
-      textRU: {
-        type: Sequelize.STRING(200),
-        allowNull: false,
-        field: "text_ru",
       },
     },
     {
