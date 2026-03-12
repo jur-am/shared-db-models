@@ -39,6 +39,7 @@ import sentMailCount from "./models/sentMailCount.model.js";
 import stockLastApprove from "./models/stockLastApprove.model.js";
 import carBalance from "./models/carBalance.model.js";
 import collectedCarsStatus from "./models/collectedCarsStatus.model.js";
+import courierToThirdPersonReasons from "./models/courierToThirdPersonReasons.model.js";
 
 export default (sequelize, Sequelize) => {
   const db = {};
@@ -84,6 +85,7 @@ export default (sequelize, Sequelize) => {
   db.stockLastApprove = stockLastApprove(sequelize, Sequelize);
   db.carBalance = carBalance(sequelize, Sequelize);
   db.collectedCarsStatus = collectedCarsStatus(sequelize, Sequelize);
+  db.courierToThirdPersonReasons = courierToThirdPersonReasons(sequelize, Sequelize);
 
   db.purchases.belongsTo(db.products);
 
