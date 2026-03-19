@@ -40,6 +40,7 @@ import stockLastApprove from "./models/stockLastApprove.model.js";
 import carBalance from "./models/carBalance.model.js";
 import collectedCarsStatus from "./models/collectedCarsStatus.model.js";
 import courierToThirdPersonReasons from "./models/courierToThirdPersonReasons.model.js";
+import podonCalc from "./models/podonCalc.model.js";
 
 export default (sequelize, Sequelize) => {
   const db = {};
@@ -86,6 +87,7 @@ export default (sequelize, Sequelize) => {
   db.carBalance = carBalance(sequelize, Sequelize);
   db.collectedCarsStatus = collectedCarsStatus(sequelize, Sequelize);
   db.courierToThirdPersonReasons = courierToThirdPersonReasons(sequelize, Sequelize);
+  db.podonCalc = podonCalc(sequelize, Sequelize);
 
   db.purchases.belongsTo(db.products);
 
