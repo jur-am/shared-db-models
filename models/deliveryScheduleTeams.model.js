@@ -39,8 +39,28 @@ export default (sequelize, Sequelize) => {
       user: {
         type: Sequelize.STRING(45),
       },
+      reasonExplanation: {
+        type: Sequelize.STRING(200),
+      },
+      reasonId: {
+        type: Sequelize.SMALLINT.UNSIGNED,
+        field: "thirdPersonReasonId",
+      },
+      reasonCreatedAt: {
+        type: Sequelize.DATE,
+        field: "thirdPersonReasonCreatedAt",
+      },
       sendToCourierDate: {
         type: Sequelize.DATE,
+      },
+      documentsReadyDate: {
+        type: Sequelize.DATE,
+      },
+      teamApproval: {
+        type: Sequelize.TINYINT(1),
+      },
+      attachedStorage: {
+        type: Sequelize.TINYINT(1),
       },
     },
     {
