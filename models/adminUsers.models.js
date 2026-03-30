@@ -24,6 +24,10 @@ export default (sequelize, Sequelize) => {
       role: {
         type: Sequelize.INTEGER.UNSIGNED,
       },
+      phoneIp: {
+        type: Sequelize.STRING(15),
+        field: "phone_ip",
+      },
     },
     {
       timestamps: false,

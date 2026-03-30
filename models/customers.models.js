@@ -100,7 +100,7 @@ export default (sequelize, Sequelize) => {
       },
       activCustomer: {
         type: Sequelize.TINYINT,
-        field: 'aktiv_customer'
+        field: "aktiv_customer",
       },
       redeemableBonusPoints: {
         type: Sequelize.INTEGER,
