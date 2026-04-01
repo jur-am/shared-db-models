@@ -3,7 +3,7 @@ export default (sequelize, Sequelize) => {
     "CourierToThirdPersonReasons",
     {
       id: {
-        type: Sequelize.SMALLINT.UNSIGNED,
+        type: Sequelize.INTEGER,
         primaryKey: true,
         allowNull: false,
         autoIncrement: true,

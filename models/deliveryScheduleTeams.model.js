@@ -43,7 +43,7 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.STRING(200),
       },
       reasonId: {
-        type: Sequelize.SMALLINT.UNSIGNED,
+        type: Sequelize.INTEGER,
         field: "thirdPersonReasonId",
       },
       reasonCreatedAt: {
