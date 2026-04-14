@@ -11,6 +11,16 @@ export default (sequelize, Sequelize) => {
       },
       name: {
         field: "NameRegion",
+        allowNull: false,
+        type: Sequelize.STRING(50),
+      },
+      community1: {
+        field: "community_1",
+        allowNull: false,
+        type: Sequelize.STRING(50),
+      },
+      community2: {
+        field: "community_2",
         type: Sequelize.STRING(50),
       },
       carNumber: {

@@ -102,6 +102,10 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.TINYINT,
         field: "aktiv_customer",
       },
+      checkForNotif: {
+        type: Sequelize.TINYINT,
+        field: "check_for_notif",
+      },
       redeemableBonusPoints: {
         type: Sequelize.INTEGER,
       },
