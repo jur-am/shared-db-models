@@ -33,6 +33,8 @@ export default (sequelize, Sequelize) => {
       },
       isDeleted: {
         type: Sequelize.INTEGER,
+        defaultValue: 1,
+        field: "isdeleted",
       },
     },
     {

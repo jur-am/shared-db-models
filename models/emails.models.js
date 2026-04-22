@@ -1,31 +1,37 @@
 export default (sequelize, Sequelize) => {
-  const Phones = sequelize.define(
-    "Phones",
+  const Emails = sequelize.define(
+    "Emails",
     {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull: false,
-        unique: true,
       },
-      customerId: {
+      custId: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        field: "customer_id",
       },
-      phone: {
+      email: {
+        type: Sequelize.STRING(60),
+      },
+      manager: {
         type: Sequelize.STRING(45),
       },
-      name: {
-        type: Sequelize.STRING(100),
+      status: {
+        type: Sequelize.ENUM("1", "0"),
+        defaultValue: "0",
+      },
+      sex: {
+        type: Sequelize.ENUM("M", "F"),
       },
     },
     {
       timestamps: false,
       freezeTableName: true,
-      tableName: "phones",
+      tableName: "emails",
     },
   );
 
-  return Phones;
+  return Emails;
 };

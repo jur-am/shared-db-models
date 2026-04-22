@@ -1,28 +1,22 @@
 export default (sequelize, Sequelize) => {
-  const TeamData = sequelize.define(
-    "TeamData",
+  const Suppliers = sequelize.define(
+    "Suppliers",
     {
       id: {
         type: Sequelize.INTEGER.UNSIGNED,
         primaryKey: true,
-        allowNull: false,
         autoIncrement: true,
       },
-      teamNumber: {
-        type: Sequelize.STRING(3),
-        field: "team_number",
-      },
-      phoneNumber: {
+      supplier_name: {
         type: Sequelize.STRING(255),
-        field: "phone_number",
       },
     },
     {
       timestamps: false,
       freezeTableName: true,
-      tableName: "team_data",
+      tableName: "product_suppliers",
     },
   );
 
-  return TeamData;
+  return Suppliers;
 };

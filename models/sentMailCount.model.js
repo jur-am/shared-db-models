@@ -1,31 +1,28 @@
 export default (sequelize, Sequelize) => {
-  const Phones = sequelize.define(
-    "Phones",
+  const SentMailCount = sequelize.define(
+    "SentMailCount",
     {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull: false,
-        unique: true,
       },
-      customerId: {
+      mail1: {
         type: Sequelize.INTEGER,
-        allowNull: false,
       },
-      phone: {
-        type: Sequelize.STRING(45),
+      mail2: {
+        type: Sequelize.INTEGER,
       },
-      name: {
-        type: Sequelize.STRING(100),
+      date: {
+        type: Sequelize.DATE,
       },
     },
     {
       timestamps: false,
       freezeTableName: true,
-      tableName: "phones",
+      tableName: "sent_mail_count",
     },
   );
 
-  return Phones;
+  return SentMailCount;
 };

@@ -1,19 +1,11 @@
 export default (sequelize, Sequelize) => {
-  const AdminUsers = sequelize.define(
-    "AdminUsers",
+  const Users = sequelize.define(
+    "Users",
     {
       id: {
         type: Sequelize.INTEGER.UNSIGNED,
         primaryKey: true,
-        allowNull: false,
         autoIncrement: true,
-      },
-      sendEmail: {
-        type: Sequelize.INTEGER,
-        field: "send_email",
-      },
-      email: {
-        type: Sequelize.STRING(45),
       },
       username: {
         type: Sequelize.STRING(45),
@@ -24,10 +16,6 @@ export default (sequelize, Sequelize) => {
       role: {
         type: Sequelize.INTEGER.UNSIGNED,
       },
-      phoneIp: {
-        type: Sequelize.STRING(15),
-        field: "phone_ip",
-      },
     },
     {
       timestamps: false,
@@ -36,5 +24,5 @@ export default (sequelize, Sequelize) => {
     },
   );
 
-  return AdminUsers;
+  return Users;
 };

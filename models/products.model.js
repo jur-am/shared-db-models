@@ -82,6 +82,9 @@ export default (sequelize, Sequelize) => {
       weight: {
         type: Sequelize.FLOAT(7, 2),
       },
+      url: {
+        type: Sequelize.STRING(250),
+      },
     },
     {
       timestamps: false,

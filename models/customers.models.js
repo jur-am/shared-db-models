@@ -47,9 +47,37 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.STRING(5),
         field: "l_agreement",
       },
+      invoiceCode: {
+        type: Sequelize.STRING(8),
+        field: "InvoiceCode",
+      },
+      codNalog: {
+        type: Sequelize.STRING(15),
+        field: "Cod_Nalog_I",
+      },
       region: {
         type: Sequelize.INTEGER.UNSIGNED,
         field: "Region_IF",
+      },
+      region1: {
+        type: Sequelize.INTEGER.UNSIGNED,
+        field: "region_1",
+      },
+      permanentNote: {
+        type: Sequelize.STRING(250),
+        field: "Permanentnote",
+      },
+      addressDescription: {
+        type: Sequelize.STRING(400),
+        field: "AddressDescripIF",
+      },
+      addressDescriptionDraft: {
+        type: Sequelize.STRING(400),
+        field: "AddressDescriptionDraft",
+      },
+      lastActivity: {
+        type: Sequelize.DATE,
+        field: "last_activity",
       },
       user: {
         type: Sequelize.STRING(50),
@@ -70,11 +98,22 @@ export default (sequelize, Sequelize) => {
       main: {
         type: Sequelize.TINYINT,
       },
+      activCustomer: {
+        type: Sequelize.TINYINT,
+        field: "aktiv_customer",
+      },
+      checkForNotif: {
+        type: Sequelize.TINYINT,
+        field: "check_for_notif",
+      },
       redeemableBonusPoints: {
         type: Sequelize.INTEGER,
       },
       lastUnusedBonusDate: {
         type: Sequelize.DATEONLY,
+      },
+      state: {
+        type: Sequelize.INTEGER,
       },
       cred1: {
         type: Sequelize.INTEGER,
@@ -90,6 +129,20 @@ export default (sequelize, Sequelize) => {
       },
       points: {
         type: Sequelize.DOUBLE,
+      },
+      lat: {
+        type: Sequelize.STRING(10),
+      },
+      lng: {
+        type: Sequelize.STRING(10),
+      },
+      imagePath: {
+        type: Sequelize.STRING(250),
+        field: "image_path",
+      },
+      phoneNumber: {
+        type: Sequelize.STRING(112),
+        field: "Phone_IF",
       },
     },
     {

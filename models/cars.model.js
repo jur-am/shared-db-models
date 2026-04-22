@@ -16,6 +16,19 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.FLOAT(7, 2),
         field: "ProductCountLimit",
       },
+      mainStock: {
+        type: Sequelize.TINYINT,
+        defaultValue: "0",
+        field: "MainStock",
+      },
+      carType: {
+        type: Sequelize.STRING(50),
+        field: "CarType",
+      },
+      plate: {
+        type: Sequelize.STRING(200),
+        field: "Notes",
+      },
     },
     {
       timestamps: false,
