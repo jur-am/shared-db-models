@@ -140,13 +140,21 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.STRING(250),
         field: "image_path",
       },
+      createdAt: {
+        type: Sequelize.DATE,
+        field: "created_at",
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        field: "updated_at",
+      },
       phoneNumber: {
         type: Sequelize.STRING(112),
         field: "Phone_IF",
       },
     },
     {
-      timestamps: false,
+      timestamps: true,
       freezeTableName: true,
       tableName: "t_customers",
     },
