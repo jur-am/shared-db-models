@@ -106,6 +106,10 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.TINYINT,
         field: "check_for_notif",
       },
+      typeUpdatedAt: {
+        type: Sequelize.DATE,
+        field: "type_updated_at",
+      },
       redeemableBonusPoints: {
         type: Sequelize.INTEGER,
       },
@@ -139,14 +143,6 @@ export default (sequelize, Sequelize) => {
       imagePath: {
         type: Sequelize.STRING(250),
         field: "image_path",
-      },
-      createdAt: {
-        type: Sequelize.DATE,
-        field: "created_at",
-      },
-      updatedAt: {
-        type: Sequelize.DATE,
-        field: "updated_at",
       },
       phoneNumber: {
         type: Sequelize.STRING(112),
