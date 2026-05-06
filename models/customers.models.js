@@ -106,6 +106,10 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.TINYINT,
         field: "check_for_notif",
       },
+      typeUpdatedAt: {
+        type: Sequelize.DATE,
+        field: "type_updated_at",
+      },
       redeemableBonusPoints: {
         type: Sequelize.INTEGER,
       },
