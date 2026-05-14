@@ -535,7 +535,7 @@ export default (sequelize, Sequelize) => {
   db.teamDevices.hasMany(db.deliveryScheduleTeams, { foreignKey: "teamDeviceId" });
 
   db.carsWaters.belongsTo(db.cars, {
-    foreignKey: "carId",
+    foreignKey: "car",
   });
 
   db.sequelize = sequelize;
