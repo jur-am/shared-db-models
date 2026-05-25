@@ -87,7 +87,7 @@ export default (sequelize, Sequelize) => {
         defaultValue: null,
       },
       authCode: {
-        type: Sequelize.STRING(10),
+        type: Sequelize.STRING(36),
         field: "authcode",
       },
       control: {
