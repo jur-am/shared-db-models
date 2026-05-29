@@ -154,6 +154,10 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.INTEGER,
         field: "rating",
       },
+      sourceId: {
+        type: Sequelize.INTEGER,
+        field: "source_id",
+      },
       collectionDate: {
         type: Sequelize.DATE,
         defaultValue: null,

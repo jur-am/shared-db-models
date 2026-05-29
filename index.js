@@ -42,6 +42,7 @@ import collectedCarsStatus from "./models/collectedCarsStatus.model.js";
 import courierToThirdPersonReasons from "./models/courierToThirdPersonReasons.model.js";
 import podonCalc from "./models/podonCalc.model.js";
 import carsWaters from "./models/carsWaters.models.js";
+import orderSources from "./models/orderSources.model.js";
 
 export default (sequelize, Sequelize) => {
   const db = {};
@@ -90,6 +91,8 @@ export default (sequelize, Sequelize) => {
   db.courierToThirdPersonReasons = courierToThirdPersonReasons(sequelize, Sequelize);
   db.podonCalc = podonCalc(sequelize, Sequelize);
   db.carsWaters = carsWaters(sequelize, Sequelize);
+  db.orderSources = orderSources(sequelize, Sequelize);
+
   db.purchases.belongsTo(db.products);
 
   // Products
@@ -536,6 +539,10 @@ export default (sequelize, Sequelize) => {
 
   db.carsWaters.belongsTo(db.cars, {
     foreignKey: "car",
+  });
+
+  db.orders.hasMany(db.orderSources, {
+    foreignKey: "sourceId",
   });
 
   db.sequelize = sequelize;
