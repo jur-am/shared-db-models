@@ -43,6 +43,8 @@ import courierToThirdPersonReasons from "./models/courierToThirdPersonReasons.mo
 import podonCalc from "./models/podonCalc.model.js";
 import carsWaters from "./models/carsWaters.models.js";
 import orderSources from "./models/orderSources.model.js";
+import prgPrograms from "./models/prgPrograms.models.js";
+import prgThresholds from "./models/prgThresholds.models.js";
 
 export default (sequelize, Sequelize) => {
   const db = {};
@@ -92,6 +94,8 @@ export default (sequelize, Sequelize) => {
   db.podonCalc = podonCalc(sequelize, Sequelize);
   db.carsWaters = carsWaters(sequelize, Sequelize);
   db.orderSources = orderSources(sequelize, Sequelize);
+  db.prgPrograms = prgPrograms(sequelize, Sequelize);
+  db.prgThresholds = prgThresholds(sequelize, Sequelize);
 
   db.purchases.belongsTo(db.products);
 
@@ -543,6 +547,14 @@ export default (sequelize, Sequelize) => {
 
   db.orders.hasMany(db.orderSources, {
     foreignKey: "sourceId",
+  });
+
+  db.prgThresholds.belongsTo(db.prgPrograms, {
+    foreignKey: "programId",
+  });
+
+  db.prgPrograms.hasMany(db.prgThresholds, {
+    foreignKey: "id",
   });
 
   db.sequelize = sequelize;
