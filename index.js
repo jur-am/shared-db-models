@@ -45,6 +45,7 @@ import carsWaters from "./models/carsWaters.models.js";
 import orderSources from "./models/orderSources.model.js";
 import prgPrograms from "./models/prgPrograms.models.js";
 import prgThresholds from "./models/prgThresholds.models.js";
+import transactionLogs from "./models/transactionLogs.model.js";
 
 export default (sequelize, Sequelize) => {
   const db = {};
@@ -96,6 +97,7 @@ export default (sequelize, Sequelize) => {
   db.orderSources = orderSources(sequelize, Sequelize);
   db.prgPrograms = prgPrograms(sequelize, Sequelize);
   db.prgThresholds = prgThresholds(sequelize, Sequelize);
+  db.transactionLogs = transactionLogs(sequelize, Sequelize);
 
   db.purchases.belongsTo(db.products);
 
@@ -127,6 +129,14 @@ export default (sequelize, Sequelize) => {
   });
   db.transactions.belongsTo(db.stocks, {
     foreignKey: "dest_stock",
+  });
+
+  db.transactions.hasMany(db.transactionLogs, {
+    as: "logs",
+    foreignKey: "transact_id",
+  });
+  db.transactionLogs.belongsTo(db.transactions, {
+    foreignKey: "transact_id",
   });
 
   // TransactionItems
