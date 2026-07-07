@@ -3,7 +3,7 @@ export default (sequelize, Sequelize) => {
     "Transactions",
     {
       id: {
-        type: Sequelize.INTEGER.UNSIGNED,
+        type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
@@ -11,12 +11,14 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.DATE,
       },
       sourceStock: {
-        type: Sequelize.INTEGER.UNSIGNED,
+        type: Sequelize.INTEGER,
         field: "source_stock",
+        allowNull: true,
       },
       stockId: {
-        type: Sequelize.INTEGER.UNSIGNED,
+        type: Sequelize.INTEGER,
         field: "dest_stock",
+        allowNull: true,
       },
       notes: {
         type: Sequelize.TEXT,

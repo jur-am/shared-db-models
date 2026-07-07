@@ -10,7 +10,6 @@ export default (sequelize, Sequelize) => {
       },
       customerId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         field: "IdCustomers",
       },
       deliveryDate: {

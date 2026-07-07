@@ -25,7 +25,7 @@ export default (sequelize, Sequelize) => {
       },
       carNumber: {
         field: "NCar",
-        type: Sequelize.STRING(15),
+        type: Sequelize.INTEGER,
       },
       status: {
         type: Sequelize.TINYINT.UNSIGNED,

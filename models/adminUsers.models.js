@@ -22,7 +22,7 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.STRING(45),
       },
       role: {
-        type: Sequelize.INTEGER.UNSIGNED,
+        type: Sequelize.INTEGER,
       },
       phoneIp: {
         type: Sequelize.STRING(15),

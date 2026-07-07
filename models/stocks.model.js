@@ -3,9 +3,10 @@ export default (sequelize, Sequelize) => {
     "Stocks",
     {
       id: {
-        type: Sequelize.INTEGER.UNSIGNED,
+        type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
+        allowNull: false,
       },
       stockname: {
         type: Sequelize.STRING(100),

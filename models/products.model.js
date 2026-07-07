@@ -37,11 +37,11 @@ export default (sequelize, Sequelize) => {
         field: "stock_id",
       },
       stockId1: {
-        type: Sequelize.TINYINT,
+        type: Sequelize.INTEGER,
         field: "stock_id_1",
       },
       stockId2: {
-        type: Sequelize.TINYINT,
+        type: Sequelize.INTEGER,
         field: "stock_id_2",
       },
       costofUnit: {

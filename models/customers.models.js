@@ -60,7 +60,7 @@ export default (sequelize, Sequelize) => {
         field: "Region_IF",
       },
       region1: {
-        type: Sequelize.INTEGER.UNSIGNED,
+        type: Sequelize.INTEGER,
         field: "region_1",
       },
       permanentNote: {
