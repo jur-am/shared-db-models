@@ -15,6 +15,10 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.INTEGER,
         field: "product_id",
       },
+      unitPrice: {
+        type: Sequelize.DOUBLE,
+        field: "unit_price",
+      },
       count: {
         type: Sequelize.INTEGER,
       },

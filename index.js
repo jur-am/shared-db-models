@@ -243,14 +243,6 @@ export default (sequelize, Sequelize) => {
     foreignKey: "orderId",
   });
 
-  db.customers.belongsTo(db.regions, {
-    foreignKey: "region",
-  });
-
-  db.customers.hasMany(db.phones, {
-    foreignKey: "customerId",
-  });
-
   db.phones.belongsTo(db.customers, {
     foreignKey: "id",
   });
