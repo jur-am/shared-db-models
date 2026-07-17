@@ -46,6 +46,7 @@ import orderSources from "./models/orderSources.model.js";
 import prgPrograms from "./models/prgPrograms.models.js";
 import prgThresholds from "./models/prgThresholds.models.js";
 import transactionLogs from "./models/transactionLogs.model.js";
+import orderItemDataMatrix from "./models/orderItemDataMatrix.model.js";
 
 export default (sequelize, Sequelize) => {
   const db = {};
@@ -98,6 +99,7 @@ export default (sequelize, Sequelize) => {
   db.prgPrograms = prgPrograms(sequelize, Sequelize);
   db.prgThresholds = prgThresholds(sequelize, Sequelize);
   db.transactionLogs = transactionLogs(sequelize, Sequelize);
+  db.orderItemDataMatrix = orderItemDataMatrix(sequelize, Sequelize);
 
   db.purchases.belongsTo(db.products);
 
@@ -557,6 +559,14 @@ export default (sequelize, Sequelize) => {
 
   db.prgPrograms.hasMany(db.prgThresholds, {
     foreignKey: "id",
+  });
+
+  db.orderedProducts.hasMany(db.orderItemDataMatrix, {
+    foreignKey: "orderItemId",
+  });
+
+  db.orderItemDataMatrix.belongsTo(db.orderedProducts, {
+    foreignKey: "orderItemId",
   });
 
   db.sequelize = sequelize;

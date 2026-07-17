@@ -48,6 +48,11 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.DOUBLE(15, 2),
         field: "CostofUnit",
       },
+      qrDataMatrix: {
+        type: Sequelize.ENUM("0", "1"),
+        field: "qr_data_matrix",
+        defaultValue: "0",
+      },
       blockPrice: {
         type: Sequelize.DOUBLE(15, 2),
       },
