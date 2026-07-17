@@ -53,6 +53,10 @@ export default (sequelize, Sequelize) => {
         field: "qr_data_matrix",
         defaultValue: "0",
       },
+      gtin: {
+        type: Sequelize.STRING(14),
+        field: "GTIN",
+      },
       blockPrice: {
         type: Sequelize.DOUBLE(15, 2),
       },
