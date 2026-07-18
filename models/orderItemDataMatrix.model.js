@@ -7,15 +7,19 @@ export default (sequelize, Sequelize) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      orderItemId: {
+      orderId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        field: "order_item_id",
+        field: "order_id",
+      },
+      prodId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        field: "prod_id",
       },
       dataMatrix: {
         type: Sequelize.STRING(200),
         allowNull: false,
-        unique: true,
         field: "data_matrix",
       },
     },
@@ -26,11 +30,16 @@ export default (sequelize, Sequelize) => {
       indexes: [
         {
           name: "data_matrix_UNIQUE",
+          unique: true,
           fields: ["data_matrix"],
         },
         {
           name: "fk_order_item_data_matrix_1_idx",
-          fields: ["order_item_id"],
+          fields: ["order_id"],
+        },
+        {
+          name: "fk_order_item_data_matrix_2_idx",
+          fields: ["prod_id"],
         },
       ],
     },

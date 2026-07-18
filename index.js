@@ -411,13 +411,6 @@ export default (sequelize, Sequelize) => {
     foreignKey: "product_id",
   });
 
-  db.suppliers.hasMany(db.products, {
-    foreignKey: "product_suppliers_id",
-  });
-  db.products.belongsTo(db.suppliers, {
-    foreignKey: "product_suppliers_id",
-  });
-
   db.zones.hasMany(db.products, {
     foreignKey: "zone_id",
   });
@@ -561,12 +554,20 @@ export default (sequelize, Sequelize) => {
     foreignKey: "id",
   });
 
-  db.orderedProducts.hasMany(db.orderItemDataMatrix, {
-    foreignKey: "orderItemId",
+  db.orders.hasMany(db.orderItemDataMatrix, {
+    foreignKey: "orderId",
   });
 
-  db.orderItemDataMatrix.belongsTo(db.orderedProducts, {
-    foreignKey: "orderItemId",
+  db.orderItemDataMatrix.belongsTo(db.orders, {
+    foreignKey: "orderId",
+  });
+
+  db.products.hasMany(db.orderItemDataMatrix, {
+    foreignKey: "prodId",
+  });
+
+  db.orderItemDataMatrix.belongsTo(db.products, {
+    foreignKey: "prodId",
   });
 
   db.sequelize = sequelize;
