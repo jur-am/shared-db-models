@@ -16,6 +16,10 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.STRING(50), // NOTE: Seem that need to change db type to be integer
         field: "TypeProduct",
       },
+      atgCode: {
+        type: Sequelize.STRING(10),
+        field: "atgcode",
+      },
       zone_id: {
         type: Sequelize.INTEGER.UNSIGNED,
       },

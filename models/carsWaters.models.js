@@ -24,6 +24,10 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.SMALLINT,
         field: "maqur_jur_19",
       },
+      maqur409019: {
+        type: Sequelize.SMALLINT,
+        field: "maqur_4090_19",
+      },
       byureghStatic: {
         type: Sequelize.SMALLINT,
         field: "byuregh_static",
@@ -31,6 +35,10 @@ export default (sequelize, Sequelize) => {
       maqurJur19Static: {
         type: Sequelize.SMALLINT,
         field: "maqur_jur_19_static",
+      },
+      maqur409019Static: {
+        type: Sequelize.SMALLINT,
+        field: "maqur_4090_19_static",
       },
       orderCount: {
         type: Sequelize.SMALLINT,

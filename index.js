@@ -47,9 +47,12 @@ import prgPrograms from "./models/prgPrograms.models.js";
 import prgThresholds from "./models/prgThresholds.models.js";
 import transactionLogs from "./models/transactionLogs.model.js";
 import orderItemDataMatrix from "./models/orderItemDataMatrix.model.js";
+import orderPrintResult from "./models/orderPrintResult.model.js";
 
 export default (sequelize, Sequelize) => {
   const db = {};
+
+  // "@jur.am/shared-models": "file:./../shared-db-models",
 
   db.customers = customers(sequelize, Sequelize);
   db.notifications = notifications(sequelize, Sequelize);
@@ -100,6 +103,7 @@ export default (sequelize, Sequelize) => {
   db.prgThresholds = prgThresholds(sequelize, Sequelize);
   db.transactionLogs = transactionLogs(sequelize, Sequelize);
   db.orderItemDataMatrix = orderItemDataMatrix(sequelize, Sequelize);
+  db.orderPrintResult = orderPrintResult(sequelize, Sequelize);
 
   db.purchases.belongsTo(db.products);
 
@@ -568,6 +572,14 @@ export default (sequelize, Sequelize) => {
 
   db.orderItemDataMatrix.belongsTo(db.products, {
     foreignKey: "prodId",
+  });
+
+  db.orders.hasMany(db.orderPrintResult, {
+    foreignKey: "orderId",
+  });
+
+  db.orderPrintResult.belongsTo(db.orders, {
+    foreignKey: "orderId",
   });
 
   db.sequelize = sequelize;

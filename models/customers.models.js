@@ -131,6 +131,12 @@ export default (sequelize, Sequelize) => {
       cred4: {
         type: Sequelize.INTEGER,
       },
+      cred5: {
+        type: Sequelize.INTEGER,
+      },
+      cred6: {
+        type: Sequelize.INTEGER,
+      },
       points: {
         type: Sequelize.DOUBLE,
       },

@@ -27,6 +27,9 @@ export default (sequelize, Sequelize) => {
       makurJur19: {
         type: Sequelize.INTEGER,
       },
+      makurJur4090_19: {
+        type: Sequelize.INTEGER,
+      },
       permissibleAmount: {
         type: Sequelize.INTEGER,
         field: "permissible_amount",
