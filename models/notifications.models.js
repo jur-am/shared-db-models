@@ -42,6 +42,11 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.INTEGER,
         field: "customer_id",
       },
+      hasRead: {
+        type: Sequelize.ENUM("0", "1"),
+        defaultValue: "0",
+        field: "has_read",
+      },
       orderId: {
         type: Sequelize.INTEGER,
         field: "order_id",
