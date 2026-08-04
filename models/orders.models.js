@@ -115,6 +115,15 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.STRING(11),
         field: "ExpDelTime",
       },
+      serialNumber: {
+        type: Sequelize.STRING(45),
+        field: "serial_number",
+      },
+      checkSerialNu: {
+        type: Sequelize.ENUM("0", "1"),
+        field: "check_serial_nu",
+        defaultValue: "0",
+      },
       expDelTimeSite: {
         type: Sequelize.STRING(11),
         field: "ExpDelTimeSite",
