@@ -28,7 +28,7 @@ export default (sequelize, Sequelize) => {
       timestamps: true,
       updatedAt: false,
       freezeTableName: true,
-      tableName: "SerialNumberResponse",
+      tableName: "serial_number_response",
     },
   );
 
