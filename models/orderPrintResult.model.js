@@ -53,9 +53,15 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.STRING(45),
         field: "emark_verification_code",
       },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        field: "created_at",
+      },
     },
     {
-      timestamps: false,
+      timestamps: true,
+      updatedAt: false,
       freezeTableName: true,
       tableName: "order_print_result",
     },
