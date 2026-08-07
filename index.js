@@ -48,6 +48,7 @@ import prgThresholds from "./models/prgThresholds.models.js";
 import transactionLogs from "./models/transactionLogs.model.js";
 import orderItemDataMatrix from "./models/orderItemDataMatrix.model.js";
 import orderPrintResult from "./models/orderPrintResult.model.js";
+import serialNumberResponse from "./models/serialNnumberResponse.model.js";
 
 export default (sequelize, Sequelize) => {
   const db = {};
@@ -104,6 +105,7 @@ export default (sequelize, Sequelize) => {
   db.transactionLogs = transactionLogs(sequelize, Sequelize);
   db.orderItemDataMatrix = orderItemDataMatrix(sequelize, Sequelize);
   db.orderPrintResult = orderPrintResult(sequelize, Sequelize);
+  db.serialNumberResponse = serialNumberResponse(sequelize, Sequelize);
 
   db.purchases.belongsTo(db.products);
 
@@ -579,6 +581,13 @@ export default (sequelize, Sequelize) => {
   });
 
   db.orderPrintResult.belongsTo(db.orders, {
+    foreignKey: "orderId",
+  });
+  db.orders.hasMany(db.serialNumberResponse, {
+    foreignKey: "orderId",
+  });
+
+  db.serialNumberResponse.belongsTo(db.orders, {
     foreignKey: "orderId",
   });
 
