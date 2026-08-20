@@ -36,6 +36,9 @@ export default (sequelize, Sequelize) => {
         defaultValue: 1,
         field: "isdeleted",
       },
+      bonusCarType: {
+        type: Sequelize.STRING(45),
+      },
     },
     {
       timestamps: false,
