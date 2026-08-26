@@ -5,7 +5,6 @@ import orderedProducts from "./models/orderedProducts.model.js";
 import cars from "./models/cars.model.js";
 import creditReturn from "./models/creditReturn.model.js";
 import products from "./models/products.model.js";
-import sendersPhoneNumbers from "./models/sendersPhoneNumber.model.js";
 import teamDevices from "./models/teamDevices.model.js";
 import assignees from "./models/assignee.model.js";
 import teamData from "./models/teamData.model.js";
@@ -62,7 +61,6 @@ export default (sequelize, Sequelize) => {
   db.cars = cars(sequelize, Sequelize);
   db.creditReturn = creditReturn(sequelize, Sequelize);
   db.products = products(sequelize, Sequelize);
-  db.sendersPhoneNumbers = sendersPhoneNumbers(sequelize, Sequelize);
   db.teamDevices = teamDevices(sequelize, Sequelize);
   db.assignees = assignees(sequelize, Sequelize);
   db.teamData = teamData(sequelize, Sequelize);
@@ -343,28 +341,8 @@ export default (sequelize, Sequelize) => {
     foreignKey: "prodId",
   });
 
-  db.sendersPhoneNumbers.belongsTo(db.cars, {
-    sourceKey: "carNumber",
-    foreignKey: "carNumber",
-  });
-
-  db.cars.hasMany(db.sendersPhoneNumbers, {
-    foreignKey: "carNumber",
-  });
-
-  db.sendersPhoneNumbers.belongsTo(db.teamData, {
-    sourceKey: "carNumber",
-    foreignKey: "teamId",
-    as: "teamData",
-  });
-
   db.teamData.hasOne(db.teamDevices, { foreignKey: "teamId" });
   db.teamDevices.belongsTo(db.teamData, { foreignKey: "teamId" });
-
-  db.sendersPhoneNumbers.belongsTo(db.teamDevices, {
-    foreignKey: "teamId",
-    targetKey: "teamId",
-  });
 
   db.teamDevices.belongsTo(db.assignees, {
     foreignKey: "courierId",

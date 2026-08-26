@@ -150,10 +150,6 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.STRING(250),
         field: "image_path",
       },
-      phoneNumber: {
-        type: Sequelize.STRING(112),
-        field: "Phone_IF",
-      },
     },
     {
       timestamps: false,
