@@ -48,6 +48,10 @@ import transactionLogs from "./models/transactionLogs.model.js";
 import orderItemDataMatrix from "./models/orderItemDataMatrix.model.js";
 import orderPrintResult from "./models/orderPrintResult.model.js";
 import serialNumberResponse from "./models/serialNnumberResponse.model.js";
+import carGroup from "./models/carGroups.model.js";
+import carGroupThresholds from "./models/carGroupThresholds.model.js";
+import htPrograms from "./models/htPrograms.model.js";
+import prg from "./models/prg.model.js";
 
 export default (sequelize, Sequelize) => {
   const db = {};
@@ -104,7 +108,10 @@ export default (sequelize, Sequelize) => {
   db.orderItemDataMatrix = orderItemDataMatrix(sequelize, Sequelize);
   db.orderPrintResult = orderPrintResult(sequelize, Sequelize);
   db.serialNumberResponse = serialNumberResponse(sequelize, Sequelize);
-
+  db.carGroup = carGroup(sequelize, Sequelize);
+  db.carGroupThresholds = carGroupThresholds(sequelize, Sequelize);
+  db.htPrograms = htPrograms(sequelize, Sequelize);
+  db.prg = prg(sequelize, Sequelize);
   db.purchases.belongsTo(db.products);
 
   // Products
@@ -535,7 +542,39 @@ export default (sequelize, Sequelize) => {
   });
 
   db.prgPrograms.hasMany(db.prgThresholds, {
-    foreignKey: "id",
+    foreignKey: "programId",
+  });
+
+  // Prg <-> CarGroupThresholds <-> CarGroup
+  db.prg.hasMany(db.carGroupThresholds, {
+    as: "carGroupThresholds",
+    foreignKey: "prgId",
+  });
+
+  db.carGroupThresholds.belongsTo(db.prg, {
+    as: "prg",
+    foreignKey: "prgId",
+  });
+
+  db.carGroup.hasMany(db.carGroupThresholds, {
+    as: "carGroupThresholds",
+    foreignKey: "carGroupId",
+  });
+
+  db.carGroupThresholds.belongsTo(db.carGroup, {
+    as: "carGroup",
+    foreignKey: "carGroupId",
+  });
+
+  // HtPrograms -> CarGroup
+  db.carGroup.hasOne(db.htPrograms, {
+    as: "htProgram",
+    foreignKey: "carGroupId",
+  });
+
+  db.htPrograms.belongsTo(db.carGroup, {
+    as: "carGroup",
+    foreignKey: "carGroupId",
   });
 
   db.orders.hasMany(db.orderItemDataMatrix, {
