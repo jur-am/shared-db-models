@@ -31,6 +31,7 @@ import deliverySchedule from "./models/deliverySchedule.model.js";
 import deliveryScheduleTeams from "./models/deliveryScheduleTeams.model.js";
 import deliveryScheduleDayParts from "./models/deliveryScheduleDayParts.model.js";
 import carStatus from "./models/carStatus.model.js";
+import carType from "./models/carType.model.js";
 import dayPartWorkPeriod from "./models/dayPartWorkPeriod.model.js";
 import deliveryTimeManagement from "./models/deliveryTimeManagement.model.js";
 import emails from "./models/emails.models.js";
@@ -91,6 +92,7 @@ export default (sequelize, Sequelize) => {
   db.deliveryScheduleTeams = deliveryScheduleTeams(sequelize, Sequelize);
   db.deliveryScheduleDayParts = deliveryScheduleDayParts(sequelize, Sequelize);
   db.carStatus = carStatus(sequelize, Sequelize);
+  db.carType = carType(sequelize, Sequelize);
   db.dayPartWorkPeriod = dayPartWorkPeriod(sequelize, Sequelize);
   db.deliveryTimeManagement = deliveryTimeManagement(sequelize, Sequelize);
   db.emails = emails(sequelize, Sequelize);
@@ -298,6 +300,14 @@ export default (sequelize, Sequelize) => {
 
   db.deliveryScheduleTeams.belongsTo(db.cars, {
     foreignKey: "carId",
+  });
+
+  db.carType.hasMany(db.cars, {
+    foreignKey: "carTypeId",
+  });
+
+  db.cars.belongsTo(db.carType, {
+    foreignKey: "carTypeId",
   });
 
   db.deliveryScheduleTeams.belongsTo(db.deliveryScheduleDayParts, {

@@ -21,13 +21,16 @@ export default (sequelize, Sequelize) => {
         defaultValue: "0",
         field: "MainStock",
       },
-      carType: {
-        type: Sequelize.STRING(50),
-        field: "CarType",
+      carTypeId: {
+        type: Sequelize.INTEGER,
+        field: "carTypeId",
       },
       plate: {
         type: Sequelize.STRING(200),
         field: "Notes",
+      },
+      situation: {
+        type: Sequelize.ENUM('new', 'old'),
       },
     },
     {
