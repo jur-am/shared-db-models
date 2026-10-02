@@ -53,6 +53,7 @@ import carGroup from "./models/carGroups.model.js";
 import carGroupThresholds from "./models/carGroupThresholds.model.js";
 import htPrograms from "./models/htPrograms.model.js";
 import prg from "./models/prg.model.js";
+import productsAttachedPackages from "./models/productsAttachedPackages.model.js";
 
 export default (sequelize, Sequelize) => {
   const db = {};
@@ -114,6 +115,7 @@ export default (sequelize, Sequelize) => {
   db.carGroupThresholds = carGroupThresholds(sequelize, Sequelize);
   db.htPrograms = htPrograms(sequelize, Sequelize);
   db.prg = prg(sequelize, Sequelize);
+  db.productsAttachedPackages = productsAttachedPackages(sequelize, Sequelize);
   db.purchases.belongsTo(db.products);
 
   // Products
@@ -616,6 +618,31 @@ export default (sequelize, Sequelize) => {
 
   db.serialNumberResponse.belongsTo(db.orders, {
     foreignKey: "orderId",
+  });
+
+  // Products <-> AttachedPackages
+  db.products.hasMany(db.productsAttachedPackages, {
+    as: "attachedPackages",
+    foreignKey: "parentProdId",
+    sourceKey: "id",
+  });
+
+  db.productsAttachedPackages.belongsTo(db.products, {
+    as: "parentProduct",
+    foreignKey: "parentProdId",
+    targetKey: "id",
+  });
+
+  db.products.hasMany(db.productsAttachedPackages, {
+    as: "attachedToPackages",
+    foreignKey: "prodId",
+    sourceKey: "id",
+  });
+
+  db.productsAttachedPackages.belongsTo(db.products, {
+    as: "product",
+    foreignKey: "prodId",
+    targetKey: "id",
   });
 
   db.sequelize = sequelize;
