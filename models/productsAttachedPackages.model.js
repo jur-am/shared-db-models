@@ -24,11 +24,11 @@ export default (sequelize, Sequelize) => {
         defaultValue: 1,
       },
       price: {
-        type: Sequelize.DECIMAL(12, 2),
+        type: Sequelize.DOUBLE,
         allowNull: true,
       },
       percent: {
-        type: Sequelize.DECIMAL(5, 2),
+        type: Sequelize.DOUBLE,
         allowNull: true,
       },
     },
