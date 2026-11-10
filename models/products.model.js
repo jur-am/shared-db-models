@@ -58,7 +58,7 @@ export default (sequelize, Sequelize) => {
         defaultValue: "0",
       },
       gtin: {
-        type: Sequelize.STRING(14),
+        type: Sequelize.STRING(100),
         field: "GTIN",
       },
       gtinMin: {
@@ -66,7 +66,7 @@ export default (sequelize, Sequelize) => {
         field: "GTIN_min",
       },
       gtinBlock: {
-        type: Sequelize.STRING(14),
+        type: Sequelize.STRING(100),
         field: "GTIN_block",
       },
       blockPrice: {
