@@ -51,6 +51,10 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.INTEGER,
         field: "order_id",
       },
+      extraFields: {
+        type: Sequelize.STRING(2000),
+        field: "extra_fields",
+      },
     },
     {
       timestamps: false,
