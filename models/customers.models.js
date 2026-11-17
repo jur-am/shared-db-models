@@ -150,6 +150,10 @@ export default (sequelize, Sequelize) => {
         type: Sequelize.STRING(250),
         field: "image_path",
       },
+      lastActivityWithWater: {
+        type: Sequelize.DATEONLY,
+        field: "last_activity_with_water",
+      },
     },
     {
       timestamps: false,
