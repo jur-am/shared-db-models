@@ -328,21 +328,6 @@ export default (sequelize, Sequelize) => {
     targetKey: "id",
   });
 
-  db.customers.hasMany(db.orders, {
-    foreignKey: "customerId",
-  });
-
-  db.orders.belongsTo(db.customers, {
-    foreignKey: "customerId",
-  });
-
-  db.orders.hasMany(db.orderedProducts, {
-    foreignKey: "orderId",
-  });
-  db.orderedProducts.belongsTo(db.orders, {
-    foreignKey: "orderId",
-  });
-
   db.creditReturn.belongsTo(db.orders, {
     foreignKey: "orderid",
     targetKey: "id",
@@ -350,14 +335,6 @@ export default (sequelize, Sequelize) => {
   db.orders.hasMany(db.creditReturn, {
     foreignKey: "orderid",
     sourceKey: "id",
-  });
-
-  db.products.hasMany(db.orderedProducts, {
-    foreignKey: "prodId",
-  });
-
-  db.orderedProducts.belongsTo(db.products, {
-    foreignKey: "prodId",
   });
 
   db.teamData.hasOne(db.teamDevices, { foreignKey: "teamId" });
@@ -402,70 +379,6 @@ export default (sequelize, Sequelize) => {
     as: "driverCourier",
   });
 
-  db.emails.belongsTo(db.customers, {
-    foreignKey: "custId",
-  });
-
-  db.customers.hasMany(db.emails, {
-    foreignKey: "custId",
-  });
-
-  db.products.hasMany(db.purchases, {
-    foreignKey: "product_id",
-  });
-
-  db.zones.hasMany(db.products, {
-    foreignKey: "zone_id",
-  });
-  db.products.belongsTo(db.zones, {
-    foreignKey: "zone_id",
-  });
-
-  db.stocks.hasMany(db.transactions, {
-    foreignKey: "source_stock",
-  });
-  db.transactions.belongsTo(db.stocks, {
-    foreignKey: "source_stock",
-  });
-
-  db.stocks.hasMany(db.transactions, {
-    foreignKey: "dest_stock",
-  });
-  db.transactions.belongsTo(db.stocks, {
-    foreignKey: "dest_stock",
-  });
-
-  db.products.hasMany(db.transactionItems, {
-    foreignKey: "product_id",
-  });
-  db.transactionItems.belongsTo(db.products, {
-    foreignKey: "product_id",
-  });
-
-  db.purchases.belongsTo(db.transactionItems, {
-    foreignKey: "transItemId",
-  });
-
-  db.purchases.belongsTo(db.products, {
-    foreignKey: "product_id",
-  });
-
-  db.orders.hasMany(db.collectedProducts, {
-    foreignKey: "orderId",
-  });
-
-  db.collectedProducts.belongsTo(db.orders, {
-    foreignKey: "orderId",
-  });
-
-  // Orders
-  db.orders.hasMany(db.orderedProducts, {
-    foreignKey: "orderId",
-  });
-  db.orderedProducts.belongsTo(db.orders, {
-    foreignKey: "orderId",
-  });
-
   db.teamDevices.belongsTo(db.teamData, {
     foreignKey: "teamId",
     as: "TeamData", // Specify the key name
@@ -479,38 +392,6 @@ export default (sequelize, Sequelize) => {
   db.cars.hasMany(db.orders, {
     foreignKey: "carId",
     sourceKey: "id",
-  });
-
-  db.customers.hasMany(db.orders, {
-    foreignKey: "customerId",
-  });
-
-  db.orders.belongsTo(db.customers, {
-    foreignKey: "customerId",
-  });
-
-  db.products.hasMany(db.collectedProducts, {
-    foreignKey: "prodId",
-  });
-
-  db.collectedProducts.belongsTo(db.products, {
-    foreignKey: "prodId",
-  });
-
-  db.collectedProducts.hasMany(db.collectedProductsParts, {
-    foreignKey: "collectedProductId",
-  });
-
-  db.collectedProductsParts.belongsTo(db.collectedProducts, {
-    foreignKey: "collectedProductId",
-  });
-
-  db.packs.hasMany(db.collectedProductsParts, {
-    foreignKey: "packId",
-  });
-
-  db.collectedProductsParts.belongsTo(db.packs, {
-    foreignKey: "packId",
   });
 
   db.shippedProds.belongsTo(db.products, {
